@@ -1,0 +1,12 @@
+venv-*
+.idea/*
+temp*
+.DS_Store
+.ipynb
+__pycache__
+*.tmp
+.venv-*
+*.yml
+/venv/
+/venv2/
+/output

@@ -1,0 +1,24 @@
+{
+  "name": "verificacion",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "rm -rf test && npx tsc && npx jest --colors ./test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/luxon": "^1.25.0",
+    "@types/node": "^14.14.20",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "csv-parse": "^4.14.2",
+    "linq": "^3.2.3",
+    "luxon": "^1.25.0",
+    "wildcard-match": "^5.1.0"
+  }
+}

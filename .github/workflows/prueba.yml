@@ -37,10 +37,9 @@ jobs:
           dvc remote modify origin --local auth basic
           dvc remote modify origin --local user itare
           dvc remote modify origin --local password  ${{ secrets.DAGS_TOKEN }} 
-          
-    - name: dvc pull and 
-      run: |      
           dvc pull 
+    - name: git clone y mas 
+      run: |      
           git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /data-prep
           cp /data-prep/output/ReporteDiario ./input/
           dvc add input/ReporteDiario

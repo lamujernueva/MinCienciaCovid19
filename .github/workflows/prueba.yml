@@ -43,7 +43,7 @@ jobs:
     - name: git clone y mas 
       run: |      
           git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /tmp/data-prep
-          cp /tmp/data-prep/output/ReporteDiario ./input/
+          cp -r /tmp/data-prep/output/ReporteDiario ./input/
           dvc add input/ReporteDiario
           dvc push
           

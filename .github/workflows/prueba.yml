@@ -33,7 +33,6 @@ jobs:
         pip install -r requirements.txt
     - name: Set dvc remote and dvc pull
       run: |
-          dvc remote add origin https://dagshub.com/itare/MinCienciaCovid19.dvc
           dvc remote modify origin --local auth basic
           dvc remote modify origin --local user itare
           dvc remote modify origin --local password  ${{ secrets.DAGS_TOKEN }} 

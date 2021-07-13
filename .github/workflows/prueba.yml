@@ -45,7 +45,7 @@ jobs:
           git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /tmp/data-prep
           cp -r /tmp/data-prep/output/ReporteDiario ./input/
           dvc add input/ReporteDiario
-          dvc push
+          dvc push -r origin
           
     - uses: stefanzweifel/git-auto-commit-action@v4.1.1
       with:

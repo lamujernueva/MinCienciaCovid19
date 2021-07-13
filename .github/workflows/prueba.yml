@@ -4,7 +4,7 @@ name: reporte_diario_daily_processing
 # events but only for the master branch
 on:
     schedule:
-      - cron:  '*/30 4 */7 * *'
+      - cron:  '*/30 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,8 +41,8 @@ jobs:
           
     - name: git clone y mas 
       run: |      
-          git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /data-prep
-          cp /data-prep/output/ReporteDiario ./input/
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /tmp/data-prep
+          cp /tmp/data-prep/output/ReporteDiario ./input/
           dvc add input/ReporteDiario
           dvc push
           

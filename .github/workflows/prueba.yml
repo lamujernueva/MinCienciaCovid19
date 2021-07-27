@@ -37,12 +37,24 @@ jobs:
           dvc remote modify origin --local user itare
           dvc remote modify origin --local password  ${{ secrets.DAGS_TOKEN }} 
           dvc pull -r origin
-          
-    - name: git clone y mas 
+  
+    - name: git clone  
       run: |      
           git clone https://${{ secrets.GH_TOKEN }}@github.com/MinCiencia/MinCienciaDataPreparation.git /tmp/data-prep
+            
+    - name: ga reportediario
+      run: |     
           cp -r /tmp/data-prep/output/ReporteDiario ./input/
           dvc add input/ReporteDiario
+    
+    - name: ga deis  
+      run: |
+        cp -r /tmp/data-prep/output/DistribucionDEIS ./input/
+        cd src
+        python distribucionDEIS.py
+
+    - name: dvc push 
+      run: |
           dvc push -r origin
           
     - uses: stefanzweifel/git-auto-commit-action@v4.1.1

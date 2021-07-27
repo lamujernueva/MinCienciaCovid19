@@ -1,0 +1,45 @@
+name: DEIS_Files_Processing
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+    #push
+    # github runners are on GMT
+    schedule:
+      - cron:  '10 10,11,12 * * SAT'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  P37_P50_P84_sospechosos:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Check DEIS for new files and process
+      run: |
+          cd src
+          echo ""
+          echo "Generating input for producto 37 sospechosos"
+          python prod37_sospechosos_y_confirmados.py
+          echo ""
+          echo "Generating input for P50"
+          python prod50.py
+          echo ""
+          echo "Generating input for P84"
+          python prod84.py
+    - uses: stefanzweifel/git-auto-commit-action@v4.1.1
+      with:
+        commit_message: "Added data to repo from DEIS"
+
+        # Optional glob pattern of files which should be added to the commit
+        #file_pattern: output/* input/*
+
+        # Optional local file path to the repository
+        repository: .
+
+        # Optional commit user and author settings
+        commit_user_name: MinCiencia GitHub Actions Bot
+        commit_user_email: actions@github.com

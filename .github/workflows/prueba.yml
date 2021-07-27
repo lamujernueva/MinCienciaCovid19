@@ -52,6 +52,8 @@ jobs:
         cp -r /tmp/data-prep/output/DistribucionDEIS ./input/
         cd src
         python distribucionDEIS.py
+        dvc add input/DistribucionDEIS/*.csv
+        dvc add ../output/NuevaDefDefunciones/DefuncionesDEIS.csv
 
     - name: dvc push 
       run: |

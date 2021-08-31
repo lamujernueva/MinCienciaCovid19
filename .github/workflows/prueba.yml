@@ -50,8 +50,8 @@ jobs:
     - name: ga deis  
       run: |
         cp -r /tmp/data-prep/output/DistribucionDEIS ./input/
-        cd src
         mkdir output/producto50
+        cd src
         python distribucionDEIS.py
         cd ..
         dvc add input/DistribucionDEIS

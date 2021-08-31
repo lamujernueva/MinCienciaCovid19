@@ -46,6 +46,10 @@ def prod51(url, prod):
     df['Fecha'] = df['Week'].apply(lambda w: "{}-W{}-1".format(2020 + w//52, w%52))
     df['Fecha'] = pd.to_datetime(df['Fecha'], format="%Y-W%W-%w")
 
+    #creates new directory if not exist already 
+    if not os.path.exists(prod):
+        os.makedirs(prod)
+
     ## This is the std product
     df.to_csv(prod + '/ISCI_std.csv', index=False)
 

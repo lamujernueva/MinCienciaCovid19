@@ -54,7 +54,7 @@ jobs:
         python distribucionDEIS.py
         cd ..
         dvc add input/DistribucionDEIS
-        dvc add /output/NuevaDefDefunciones/DefuncionesDEIS.csv
+        dvc add output/NuevaDefDefunciones/DefuncionesDEIS.csv
 
     - name: dvc push 
       run: |

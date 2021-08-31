@@ -55,7 +55,15 @@ jobs:
         cd ..
         dvc add input/DistribucionDEIS
         dvc add output/producto50
-        
+
+    - name: ga isci 
+      run: |
+        cd src
+        python ISCI.py
+        cd ..
+        dvc add output/producto51 
+        dvc add output/producto82
+
     - name: dvc push 
       run: |
           dvc push -r origin

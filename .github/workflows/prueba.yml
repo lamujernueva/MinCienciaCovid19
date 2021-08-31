@@ -51,6 +51,7 @@ jobs:
       run: |
         cp -r /tmp/data-prep/output/DistribucionDEIS ./input/
         cd src
+        mkdir output/producto50
         python distribucionDEIS.py
         cd ..
         dvc add input/DistribucionDEIS

@@ -71,12 +71,13 @@ jobs:
       with:
           token: ${{ env.GITHUB_TOKEN }}
           repository: datagovuc/ICOVID
-          path: /tmp/ICOVID
+          path: ICOVID
    
     - name: ga uc 
       run: |
-        rsync -av --exclude "README.md" /tmp/ICOVID/DO/ Datos-COVID19/input/UC
-        cd Datos-COVID19/src
+        rsync -av --exclude "README.md" ICOVID/DO/ Datos-COVID19/input/UC
+        rm -rf  ICOVID
+        cd src
         python UC.py   
         dvc add output/producto53
 

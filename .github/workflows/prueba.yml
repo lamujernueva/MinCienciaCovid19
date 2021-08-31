@@ -54,7 +54,7 @@ jobs:
         python distribucionDEIS.py
         cd ..
         dvc add input/DistribucionDEIS
-        dvc add output/producto50/DefuncionesDEIS_confirmadosPorComuna.csv
+        dvc add output/producto50
         
     - name: dvc push 
       run: |

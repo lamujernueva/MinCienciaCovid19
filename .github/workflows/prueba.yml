@@ -31,6 +31,10 @@ jobs:
         date
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        dvc version  
+
+        
+        
     - name: Set dvc remote and dvc pull - 01
       run: |
           dvc remote modify origin --local auth basic

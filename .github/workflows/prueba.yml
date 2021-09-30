@@ -75,7 +75,7 @@ jobs:
         dvc add output/producto82
 
     - name: 'Check out datagovuc/ICOVID'
-      run: git clone datagovuc/ICOVID
+      run: git clone https://github.com/datagovuc/ICOVID
         
         
     - name: ga uc 

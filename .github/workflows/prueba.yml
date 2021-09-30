@@ -31,11 +31,17 @@ jobs:
         date
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Set dvc remote and dvc pull
+    - name: Set dvc remote and dvc pull - 01
       run: |
           dvc remote modify origin --local auth basic
+    - name: Set dvc remote and dvc pull - 02
+      run: |
           dvc remote modify origin --local user itare
+    - name: Set dvc remote and dvc pull - 03
+      run: |
           dvc remote modify origin --local password  ${{ secrets.DAGS_TOKEN }} 
+    - name: Set dvc remote and dvc pull - 04
+      run: |          
           dvc pull -r origin
   
     - name: git clone  

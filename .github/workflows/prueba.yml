@@ -75,14 +75,9 @@ jobs:
         dvc add output/producto82
 
     - name: 'Check out datagovuc/ICOVID'
-      uses: actions/checkout@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.DO_AUTOMATION_BOT_PAT }}
-      with:
-          token: ${{ env.GITHUB_TOKEN }}
-          repository: datagovuc/ICOVID
-          path: ICOVID
-   
+      run: git clone datagovuc/ICOVID
+        
+        
     - name: ga uc 
       run: |
         rsync -av --exclude "README.md" ICOVID/DO/ Datos-COVID19/input/UC

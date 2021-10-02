@@ -77,14 +77,20 @@ jobs:
     - name: 'Check out datagovuc/ICOVID'
       run: git clone https://github.com/datagovuc/ICOVID
         
-        
-    - name: ga uc 
-      run: |
-        rsync -av --exclude "README.md" ICOVID/DO/ Datos-COVID19/input/UC
-        rm -rf  ICOVID
+    - name: ga jac
+      run: | 
         cd src
-        python UC.py   
-        dvc add output/producto53
+        python jac.py
+        cd ..
+        dvc add output/producto40
+
+    - name: ga mma
+      run: |
+        cd scr
+        python MMA.py
+        cd ..
+        dvc add output/producto43       
+
 
     - name: dvc push 
       run: |

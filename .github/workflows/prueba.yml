@@ -76,13 +76,6 @@ jobs:
 
     - name: 'Check out datagovuc/ICOVID'
       run: git clone https://github.com/datagovuc/ICOVID
-        
-    - name: ga jac
-      run: | 
-        cd src
-        python jac.py
-        cd ..
-        dvc add output/producto40
 
     - name: ga mma
       run: |
